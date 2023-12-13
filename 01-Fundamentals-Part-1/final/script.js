@@ -193,6 +193,32 @@ if (birthYear <= 2000) {
 }
 console.log(`Sarah was born in the ${21} century`);
 
+// falsey values
+// 0, '', undefined, NaN,null
+
+console.log("This is the value :: ",Boolean(0));
+
+console.log("This is the value :: ",Boolean(undefined));
+
+console.log("This is the value :: ",Boolean(''));
+
+console.log("This is the value :: ",Boolean(NaN));
+
+console.log("This is the value :: ",Boolean(null));
+
+const money = 1000;
+if(money){
+  console.log("Don't spend it all")
+} else {
+  console.log("You should get a job")
+}
+
+let height;
+if(height){
+  console.log("Yay! height is defined")
+} else {
+  console.log("Height is undefined")
+}
 
 ////////////////////////////////////
 // Coding Challenge #2

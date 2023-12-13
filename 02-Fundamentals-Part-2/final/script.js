@@ -1,7 +1,51 @@
 'use strict';
+// const hasDriverLicense = true;
+// const hasGoodVision = true;
+// console.log("The && version :: ",hasDriverLicense && hasGoodVision);
+// console.log(" The || version :: ",hasDriverLicense || hasGoodVision);
+//
+// if(hasDriverLicense && hasGoodVision){
+//     console.log('Sarah is able to drive')
+// } else {
+//     console.log('Someone else should drive')
+// }
+//
+// const day = 'monday';
+// switch (day){
+//     case 'monday' :
+//         console.log('plan course structure');
+//         console.log('go to coding meetups');
+//         break;
+//     case 'tuesday' :
+//         console.log('Prepare theory videos');
+//         break;
+//     case 'wednesday' :
+//     case 'thursday':
+//         console.log('Write code examples');
+//         break;
+//     case 'friday':
+//         console.log('Record Videos');
+//         break;
+//     case 'saturday':
+//     case 'sunday':
+//         console.log('Enjoy the week end')
+//         break;
+//     default:
+//         console.log('Not a valid day');
+//         break;
+// }
+//
+// if(23 > 10){
+//     const str = '23 is bigger than 10';
+// }
+//
+// const age = 15;
+//
+// age >= 23 ? console.log("I like to drink wine :)") : console.log("I am not old enough");
 
-/*
-///////////////////////////////////////
+
+
+
 // Activating Strict Mode
 let hasDriversLicense = false;
 const passTest = true;
@@ -10,6 +54,7 @@ if (passTest) hasDriversLicense = true;
 if (hasDriversLicense) console.log('I can drive :D');
 
 // const interface = 'Audio';
+
 // const private = 534;
 
 
@@ -42,18 +87,18 @@ const num = Number('23');
 // Function Declarations vs. Expressions
 
 // Function declaration
-function calcAge1(birthYeah) {
-  return 2037 - birthYeah;
-}
-const age1 = calcAge1(1991);
+// `function calcAge1(birthYeah) {
+//   return 2037 - birthYeah;`
+// }
+// const age1 = calcAge1(1991);
+//
+// // Function expression
+// const calcAge2 = function (birthYeah) {
+//   return 2037 - birthYeah;
+// }
+// const age2 = calcAge2(1991);
 
-// Function expression
-const calcAge2 = function (birthYeah) {
-  return 2037 - birthYeah;
-}
-const age2 = calcAge2(1991);
-
-console.log(age1, age2);
+// console.log(age1, age2);
 
 
 ///////////////////////////////////////
@@ -63,32 +108,71 @@ const calcAge3 = birthYeah => 2037 - birthYeah;
 const age3 = calcAge3(1991);
 console.log(age3);
 
-const yearsUntilRetirement = (birthYeah, firstName) => {
-  const age = 2037 - birthYeah;
-  const retirement = 65 - age;
-  // return retirement;
-  return `${firstName} retires in ${retirement} years`;
-}
+// const yearsUntilRetirement = (birthYeah, firstName) => {
+//   const age = 2037 - birthYeah;
+//   const retirement = 65 - age;
+//   // return retirement;
+//   return `${firstName} retires in ${retirement} years`;
+// }
 
-console.log(yearsUntilRetirement(1991, 'Jonas')); console.log(yearsUntilRetirement(1980, 'Bob'));
+// console.log(yearsUntilRetirement(1991, 'Jonas')); console.log(yearsUntilRetirement(1980, 'Bob'));
+
+// const yearUntilRetirement =( birthYear, firstName)=> {
+//   const age = 2037 - birthYear;
+//   const retirement = 65 - age;
+//   console.log(`${firstName} retires in ${retirement} years`)
+// }
 
 
 ///////////////////////////////////////
 // Functions Calling Other Functions
-function cutFruitPieces(fruit) {
-  return fruit * 4;
-}
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
+//
+// function fruitProcessor(apples, oranges) {
+//   const applePieces = cutFruitPieces(apples);
+//   const orangePieces = cutFruitPieces(oranges);
+//
+//   const juice = `Juice with ${applePieces} piece of apple and ${orangePieces} pieces of orange.`;
+//   return juice;
+// }
+// console.log(`This is the result ${fruitProcessor(2, 3)}`);
 
-function fruitProcessor(apples, oranges) {
-  const applePieces = cutFruitPieces(apples);
-  const orangePieces = cutFruitPieces(oranges);
+// console.log("Reached this point");
+// const calcAge = function(birthYear){
+//   return 2023 - birthYear;
+// }
+//
+// const yearsUntilRetirement = function (birthYear, firstName){
+//   const age = calcAge(birthYear);
+//   const retirement = 65 - age;
+//   console.log("This is the amount of time left to retirement :: " + retirement);
+// }
+//
+// yearsUntilRetirement(1996,"Ian");
 
-  const juice = `Juice with ${applePieces} piece of apple and ${orangePieces} pieces of orange.`;
-  return juice;
-}
-console.log(fruitProcessor(2, 3));
+const friends = ["Ken", "Ben", "Harry", "Juliet"];
+console.log(`These are the friends ${friends}`)
+friends.push("Jane")
+console.log(`These are the friends ${friends}`)
+friends.pop()
+console.log(`These are the friends ${friends}`)
+friends.unshift("Peter");
+console.log(`These are the friends ${friends}`)
+const namesWithEn = friends.filter(friend=> friend.includes('e'));
+console.log(`These are the friends with en ${namesWithEn}`)
+// Your array of words
+const words = ["cat","Hen", "bat", "hat", "dog", "rat"];
 
+// Use the filter method to find words containing 'at'
+const wordsWithAt = words.filter(word => word.includes('at'));
 
+// Log the result
+console.log(wordsWithAt);
+
+/*
+///////////////////////////////////////
 ///////////////////////////////////////
 // Reviewing Functions
 const calcAge = function (birthYeah) {
