@@ -323,3 +323,105 @@ gameEvents.delete(64);
 console.log(events);
 
 //
+const airLine = 'TAP air portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(airLine.length);
+console.log(airLine.indexOf('r'))
+console.log(airLine.lastIndexOf('l'));
+console.log(airLine.slice(4))
+console.log(airLine.slice(4,7))
+
+// console.log(airLine.matchAll(' '))
+
+console.log(airLine.slice(-2,4))
+
+const checkMiddleSeat = function(seat) {
+  //Check whether the seat passed is a middle or not
+  const s = seat.slice(-1);
+  if(s ==='B' || s === 'E'){
+    console.log('You\'ve got the middle seat ')
+  } else {
+    console.log('You got lucky')
+  }
+}
+
+
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C')
+checkMiddleSeat('24E')
+
+console.log(airLine.toLowerCase());
+console.log(airLine.toLowerCase());
+
+const passenger = 'jONaS';
+const passengerLower = passenger.toLowerCase()
+console.log(passengerLower)
+
+const fixedCapitalization = function(passangerName){
+  let fixedName =  passangerName[0].toUpperCase() + passangerName.slice(1).toLowerCase();
+  console.log(fixedName);
+}
+
+fixedCapitalization(passenger);
+
+//replacing parts of a string
+const priceGB = '288,23';
+const priceUS = priceGB.replace(',','.')
+console.log(`Price us :: ${priceUS}`)
+
+const announcement = 'All passengers come to the boarding door 23,  Boarding door 23';
+console.log(announcement.replace('door','gate'));
+console.log(announcement.replaceAll('door','gate'))
+
+//Boolean functions.
+/*
+* includes()
+* startsWith()
+* endsWith()
+* */
+
+const plane2 = 'A320neo';
+console.log(plane2.includes('320'));
+console.log(plane2.includes('Boeing'));
+console.log(plane2.startsWith('A'));
+console.log(plane2.endsWith('neo'))
+
+//Check baggage is allowed to be checked in
+const checkBaggage = function(items){
+  let baggage = items.toLowerCase()
+  if (baggage.includes('knife') || baggage.includes('gun')){
+    console.log('You are not allowed to get on board')
+  } else {
+    console.log('Welcome aboard')
+  }
+}
+
+checkBaggage('I have a laptop, some food and a pocket Knife');
+checkBaggage('I have  some snacks');
+checkBaggage('I have a laptop, gun and some snacks');
+
+console.log('a+very+nice+bag'.split('+'));
+const [firstName , lastName] = 'Ian Mwema'.split(' ');
+console.log(`FirstName :: ${firstName}`)
+console.log(`LastName :: ${lastName}`)
+
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '+'));
+
+const maskCreditCard = function(number){
+  const str = number + '';
+  const last = str.slice(-4);
+
+  return last.padStart(str.length,'*')
+}
+
+console.log(maskCreditCard(56161554))
+
+//Repeat method
+
+const message2 = 'Bad weather all depatures delayed';
+
+console.log(message.repeat(5),)
