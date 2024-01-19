@@ -86,34 +86,72 @@ const renderCountry = function(data){
 // getCountryData('south africa')
 // getCountryAndNeighbour('Kenya')
 
-const request = fetch(`https://restcountries.com/v3.1/name/kenya`)
-console.log(`This is the request :: ${request}`)
-
-const getCountryData = function(country){
-    fetch(`https://restcountries.com/v3.1/name/${country}`)
-        .then((response) =>{ return response.json(); })
-        .then(data => {
-            renderCountry(data[0])
-            const neighbour = data[0].borders[0];
-           return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)})
-        .then((respnse)=> { return respnse.json()} )
-        .then(data => {
-            renderCountry(data[0])
-        }).catch((error) =>{
-            console.error(error)
-        renderError(`Something went wrong`)
-    }).finally(()=>{
-        countriesContainer.style.opacity = 1;
-    })
-    ;
-}
-
-
+// const request = fetch(`https://restcountries.com/v3.1/name/kenya`)
+// console.log(`This is the request :: ${request}`)
+//
+// const getCountryData = function(country){
+//     fetch(`https://restcountries.com/v3.1/name/${country}`)
+//         .then((response) =>{ return response.json(); })
+//         .then(data => {
+//             renderCountry(data[0])
+//             const neighbour = data[0].borders[0];
+//            return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)})
+//         .then((respnse)=> { return respnse.json()} )
+//         .then(data => {
+//             renderCountry(data[0])
+//         }).catch((error) =>{
+//             console.error(error)
+//         renderError(`Something went wrong`)
+//     }).finally(()=>{
+//         countriesContainer.style.opacity = 1;
+//     })
+//     ;
+// }
 
 
 
-btn.addEventListener('click',function () {
-    getCountryData(`kenya`)
-    btn.classList.add('display-none')
+
+
+// btn.addEventListener('click',function () {
+//     getCountryData(`kenya`)
+//     btn.classList.add('display-none')
+// })
+// btn.addEventListener('click',lotteryPromise)
+
+
+const lotteryPromise = new Promise(function (resolve, reject){
+    console.log(`Lottery draw is happening `)
+setTimeout( function(){if (Math.random() >= 0.5){
+        resolve(`You win`)
+    } else {
+        reject(`You lost your money`)
+    }}, 2000)
+});
+
+lotteryPromise.then((res) => {
+    console.log(res)
+}).catch((error) => {
+    console.error(`This is the error :: ${error}`)
 })
 
+//Promisifying set timeout
+// const wait = function(seconds){
+//     return new Promise(function(resolve) {
+//         setTimeout(resolve, seconds * 1000);
+//     })
+// };
+//
+// wait(2).then(()=>{ console.log(`I waited for 2 seconds`);
+//     return wait(1);
+// }).then(() => { console.log(`I waited for 1 second`)})
+//
+// Promise.resolve(`abc`).then((x)=>{console.log(`${x}`)})
+// Promise.reject(new Error(`Problem!`)).catch(x => console.log(x))
+
+const whereAmI = async function(country){
+    const res = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+    console.log(res);
+}
+
+whereAmI('kenya')
+console.log('first')

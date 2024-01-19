@@ -73,4 +73,35 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+let arr = ['a','b','c','d','e','f','g','h'];
+let arr2 = ['i','j','k','l','m','n','o','p'];
+//Slice Method
+let arraySlice = arr.slice(-1,-5);
+console.log(arraySlice);
+console.log(`This is the splice method :: ${arr.splice(2,3).reverse()}`)
+
+const letters = arr.concat(arr2);
+console.log(`These are the letters :: ${letters}`)
+console.log([...arr,...arr2])
+
+const arr3 = [23,11,64];
+console.log(arr3[0])
+console.log(arr3.at(0))
+
+for (let movement of movements){
+  if (movement > 0){
+    console.log(`You moved ${movement}`)
+  }
+}
+
+let i = 0;
+movements.forEach(function (movement){
+
+  if (movement > 0)
+     console.log(`You moved ${i += 1} :: ${movement}`)
+  else
+    console.log(`Withdraw ${Math.abs(movement)}`)
+})
+
+
 /////////////////////////////////////////////////
