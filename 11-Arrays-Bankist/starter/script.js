@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 let arr = ['a','b','c','d','e','f','g','h'];
@@ -102,6 +96,90 @@ movements.forEach(function (movement){
   else
     console.log(`Withdraw ${Math.abs(movement)}`)
 })
+
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value,key , map){
+  console.log(`${key} : ${value}`)
+})
+
+const currenciesUnique = new Set([`USD`,`GBP`,`EURO`,`EURO`,`KSH`])
+currenciesUnique.forEach(function (value){
+  console.log(`${value}`)
+})
+
+const displayMovements = function(movements){
+  containerMovements.innerHTML = '';
+  movements.forEach(function (mov, i){
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const html = `
+        <div class="movements__row">
+          <div class="movements__type movements__type--${type}">${i + 1}  ${type}</div>
+          <div class="movements__value">${mov}</div>
+        </div>
+    `;
+    containerMovements.insertAdjacentHTML('afterbegin',html)
+  })
+}
+
+displayMovements(account1.movements)
+console.log(`${containerMovements.innerHTML}`)
+
+const calcPrintBalance  = function(movements){
+  const balance = movements.reduce((acc, mov) => {
+    return acc + mov
+  },0);
+  labelBalance.textContent = `${balance} EURO`
+}
+
+calcPrintBalance(account1.movements)
+
+
+const euroToUsd = 1.1;
+
+const movementsUsd  = movements.map(function (mov) {
+  return mov * euroToUsd;
+})
+
+console.log(`Movements : ${movements}`);
+console.log(`Movements usd : ${movementsUsd}`)
+
+
+
+// const user = `Steven Thomas Williams`;
+
+// const createUserNames = function(accs) {
+//   accs.forEach(function (acc) {
+//     acc.username = user.owner
+//         .toLowerCase()
+//         .split(' ')
+//         .map(function (name) {
+//           return name[0];
+//         }).join('');
+//   })
+// };
+//
+// console.log(createUserNames(accounts))
+
+
+//Using the Filter Method.
+const deposits = movements.filter(function (mov){
+  return mov > 0;
+})
+console.log(deposits)
+
+
+//Accumulator is like a snowball.
+const balance = movements.reduce(function (acc,current, i,arr) {
+return acc + current
+},0)
+
+console.log(balance)
 
 
 /////////////////////////////////////////////////
