@@ -181,5 +181,23 @@ return acc + current
 
 console.log(balance)
 
+const calcAverageHumanAge = function (ages){
+  const averageAge = ages
+      .map(age => age <= 2 ? 2 * age : 16 + age * 4)
+      .filter(age => age >= 18)
+      .reduce((acc, age) => acc + age, 0) / ages.length;
+  console.log(`average age :: ${averageAge}`)
+  return averageAge;
+  console.log(humanAges)
+}
 
+calcAverageHumanAge([5,2,4,1,15,8,3]);
+
+movements.filter(mov => mov > 0 ).map(mov => mov * euroToUsd).reduce((acc,mov) => acc + mov,0)
+
+const firstWithdrawal = movements.find(mov => mov >= 0);
+console.log(firstWithdrawal)
+
+const firstAccount = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(firstAccount)
 /////////////////////////////////////////////////
