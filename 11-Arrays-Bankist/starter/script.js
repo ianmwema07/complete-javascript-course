@@ -201,3 +201,65 @@ console.log(firstWithdrawal)
 const firstAccount = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(firstAccount)
 /////////////////////////////////////////////////
+
+const bankDepositSum = accounts.flatMap(acc => acc.movements)
+    .filter(movement => movement > 0)
+    .reduce((sum, cur) => sum + cur, 0);
+
+console.log(bankDepositSum);
+
+//
+const numDepositOneThousand = accounts
+    .flatMap(acc => {acc.movements
+      console.log(`These are the acount movments flat map ${acc.movements}`)
+    })
+    .filter(mov => mov > 1000).length;
+
+console.log(`number of deposits larger than 1000 ${numDepositOneThousand}`)
+
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+console.log(`These are the dogs :: ${dogs}`)
+
+/*
+Loop over the 'dogs' array containing dog objects, and for each dog, calculate
+the recommended food portion and add it to the object as a new property. Do
+not create a new array, simply loop over the array. Forumla:
+recommendedFood = weight ** 0.75 * 28. (The result is in grams of
+food, and the weight needs to be in kg)
+**/
+
+
+const recommendedFoodPortion = dogs.flatMap(dog => {
+  dog.recommendedFood = (dog.weight ) ** 0.75 * 28
+});
+
+console.log(dogs)
+
+/*
+* Find Sarah's dog and log to the console whether it's eating too much or too
+little. Hint: Some dogs have multiple owners, so you first need to find Sarah in
+the owners array, and so this one is a bit tricky (on purpose)
+*
+* */
+
+const sarahDog = dogs.filter((dog) =>{
+  if( dog.owners.includes('Sarah')){
+    return dog;
+  } else {
+    return null;
+  }
+})
+
+for(let dog of sarahDog){
+  console.log(`This is Sarah's dog :: ${dog.toString()}`)
+}
+
+
+
