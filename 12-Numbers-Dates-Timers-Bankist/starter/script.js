@@ -251,3 +251,36 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+console.log(23 == 23.0)
+console.log(0.1 + 0.2)
+
+console.log(Number.parseInt('30px'))
+console.log(Number.isNaN(+'30px'))
+console.log(Number.isNaN(20 / 0 ))
+console.log(Number.isFinite(20))
+
+//Math class
+console.log(Math.sqrt(25))
+console.log(25 ** (1 /2))
+console.log(Math.max(5,15,23,11,2))
+console.log(Math.min(5,15,23,11,2))
+console.log(Math.max(5,15,23,'Hello',11,2))
+console.log(Math.PI * Number.parseFloat('10px') ** 2)
+
+console.log(Math.trunc(Math.random() * 6) + 1 );
+
+const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(1,5))
+//Rounding
+
+const roundedInteger = Math.round(23.45);
+console.log(roundedInteger)
+
+console.log(Math.ceil(-23.45));
+console.log(Math.floor(-23.45));
+
+console.log((2.7).toFixed(0))
+console.log((2.7).toFixed(3))
+console.log((2.345).toFixed(2))
