@@ -284,3 +284,22 @@ console.log(Math.floor(-23.45));
 console.log((2.7).toFixed(0))
 console.log((2.7).toFixed(3))
 console.log((2.345).toFixed(2))
+
+console.log('2' + 2 + '2')
+console.log(2 ** 53 )
+console.log(BigInt(9007199254740992))
+
+//Operations
+console.log(10000n + 20000n)
+console.log(12123123234232412312n * BigInt(23))
+
+console.log(20n > 5)
+console.log(20n === 20)
+console.log(typeof 20n)
+console.log(20n == '20')
+console.log(Math.sqrt(16))
+
+//Divisions
+
+console.log(10n/3n)
+
