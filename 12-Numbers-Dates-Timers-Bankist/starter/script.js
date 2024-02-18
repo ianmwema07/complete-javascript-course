@@ -88,12 +88,18 @@ const displayMovements = function (movements, sort = false) {
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
+    const date = new Date(account1.movementsDates[i]);
+    const day = `${date.getDate()}`.padStart(2,0)
+    const month = `${date.getMonth()}`.padStart(2,0);
+    const year = date.getFullYear()
+    const displayDate = `${day}/${month}/${year}`;
 
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
+        <div class="movements__date">${displayDate}</div>
         <div class="movements__value">${mov}€</div>
       </div>
     `;
@@ -177,6 +183,14 @@ btnLogin.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth();
+    const year = now.getFullYear();
+    console.log(`day is ${now.getUTCMonth()}`)
+
+    labelDate.textContent = `${day}\\${month}\\${year}`
   }
 });
 
@@ -252,21 +266,7 @@ btnSort.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 // LECTURES
 
-console.log(23 == 23.0)
-console.log(0.1 + 0.2)
 
-console.log(Number.parseInt('30px'))
-console.log(Number.isNaN(+'30px'))
-console.log(Number.isNaN(20 / 0 ))
-console.log(Number.isFinite(20))
-
-//Math class
-console.log(Math.sqrt(25))
-console.log(25 ** (1 /2))
-console.log(Math.max(5,15,23,11,2))
-console.log(Math.min(5,15,23,11,2))
-console.log(Math.max(5,15,23,'Hello',11,2))
-console.log(Math.PI * Number.parseFloat('10px') ** 2)
 
 console.log(Math.trunc(Math.random() * 6) + 1 );
 
@@ -278,28 +278,19 @@ console.log(randomInt(1,5))
 const roundedInteger = Math.round(23.45);
 console.log(roundedInteger)
 
-console.log(Math.ceil(-23.45));
-console.log(Math.floor(-23.45));
-
-console.log((2.7).toFixed(0))
-console.log((2.7).toFixed(3))
-console.log((2.345).toFixed(2))
-
-console.log('2' + 2 + '2')
-console.log(2 ** 53 )
-console.log(BigInt(9007199254740992))
-
-//Operations
-console.log(10000n + 20000n)
-console.log(12123123234232412312n * BigInt(23))
-
-console.log(20n > 5)
-console.log(20n === 20)
-console.log(typeof 20n)
-console.log(20n == '20')
-console.log(Math.sqrt(16))
 
 //Divisions
 
 console.log(10n/3n)
+
+//Creating date
+
+const now = new Date('Feb 18 2024');
+console.log(now)
+
+
+//Number Separator
+const priceInCents = 345_99;
+console.log(priceInCents)
+
 
